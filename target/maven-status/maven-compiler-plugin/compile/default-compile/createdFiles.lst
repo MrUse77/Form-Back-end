@@ -12,3 +12,4 @@ com\form\formulario\models\usuario.class
 com\form\formulario\FormularioApplication.class
 com\form\formulario\service\UsuarioService.class
 com\form\formulario\Security\JWTAuthenticationFilter.class
+com\form\formulario\controller\ApiResponse.class
