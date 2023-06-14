@@ -7,7 +7,6 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import java.util.Collections;
 import java.util.Date;
@@ -18,7 +17,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
-import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  *
@@ -29,9 +27,10 @@ public class TokenUtils {
     private final static String ACCESS_TOKEN_SECRET = "EZijKeZMTgT4exOw8D4MYaBbSDpWqhhjcjJBXXVCf2vkEFKbRQ5OQPdtfsuVVnq09RbSVqmvgYB5MRDuvMilFvY3bd0s";
      private static final Logger logger = Logger.getLogger(JWTAuthorizationFilter.class.getName());
     
-    public static String createToken(String mail, String password){
+    public static String createToken(String mail, String password, Long id){
         Map<String,Object> extra = new HashMap<>();
         extra.put("mail",mail);
+        extra.put("id",id);
         
          return Jwts.builder().setClaims(extra).setSubject(password).setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))

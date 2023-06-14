@@ -9,10 +9,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.apache.tomcat.util.http.parser.Authorization;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -32,7 +30,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             logger.log(Level.INFO, "XDDD");
         }
         UsernamePasswordAuthenticationToken usernamePAT = new UsernamePasswordAuthenticationToken(
-              
                 authCredentials.getMail(),
                 authCredentials.getPassword()
         );
@@ -43,7 +40,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         SecurityUser userDetails = (SecurityUser) authResult.getPrincipal();
-        String token = TokenUtils.createToken(userDetails.getUsername(),userDetails.getPassword());
+        String token = TokenUtils.createToken(userDetails.getUsername(),userDetails.getPassword(), userDetails.getId());
         response.addHeader("Authorization", "Bearer " + token);
         response.getWriter().flush();
         super.successfulAuthentication(request, response, chain, authResult);
