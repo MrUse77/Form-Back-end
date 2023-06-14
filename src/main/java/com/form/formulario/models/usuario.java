@@ -9,11 +9,7 @@ package com.form.formulario.models;
  * @author agusd
  */
 import jakarta.persistence.*;
-import java.util.List;
-
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
 @Entity(name="usuario")
@@ -29,18 +25,12 @@ public class usuario {
     public String mail;
     @Column 
     public String password;
-    @ManyToMany
-    @JoinTable(name="rol_usuario", 
-               joinColumns=@JoinColumn(name="persona_id",referencedColumnName="id"), 
-               inverseJoinColumns=@JoinColumn(name="rol_id",referencedColumnName="id"))
-    private List<authority> Rol;
 
-    public usuario(String name, String lastName, String mail, String password, List<authority> Rol) {
+    public usuario(String name, String lastName, String mail, String password) {
         this.name = name;
         this.lastName = lastName;
         this.mail = mail;
         this.password = password;
-        this.Rol = Rol;
     }
 
     public Long getId() {
@@ -83,19 +73,13 @@ public class usuario {
         this.password = password;
     }
 
-    public List<authority> getRol() {
-        return Rol;
-    }
-
-    public void setRol(List<authority> Rol) {
-        this.Rol = Rol;
-    }
-
    
 
 
     
 
+
+  
 
   
 

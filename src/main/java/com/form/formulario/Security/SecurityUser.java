@@ -11,7 +11,6 @@ package com.form.formulario.Security;
 import com.form.formulario.models.usuario;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Map;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -60,5 +59,8 @@ public class SecurityUser implements UserDetails{
     @Override
     public boolean isEnabled() {
         return true;}    
+    public Long getId(){
+        return usuario.getId();
+    }
 
 }

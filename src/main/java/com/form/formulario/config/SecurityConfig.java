@@ -55,8 +55,10 @@ private static final Logger logger = Logger.getLogger(SecurityConfig.class.getNa
                 return http.
                         csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers(HttpMethod.GET)
+                .requestMatchers("/traer/{mail}")
                 .authenticated()
+                .anyRequest()
+                .permitAll()    
                 .and()
                 .httpBasic()
                 .and()
