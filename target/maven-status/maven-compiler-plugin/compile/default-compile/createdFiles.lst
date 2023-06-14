@@ -1,0 +1,14 @@
+com\form\formulario\config\Cors.class
+com\form\formulario\interfaz\InterfazUsuario.class
+com\form\formulario\Security\JWTAuthorizationFilter.class
+com\form\formulario\service\IUsuarioService.class
+com\form\formulario\service\SecurityUserDetailsService.class
+com\form\formulario\Security\SecurityUser.class
+com\form\formulario\config\SecurityConfig.class
+com\form\formulario\controller\UsuarioController.class
+com\form\formulario\Security\TokenUtils.class
+com\form\formulario\Security\AuthCredentials.class
+com\form\formulario\models\usuario.class
+com\form\formulario\FormularioApplication.class
+com\form\formulario\service\UsuarioService.class
+com\form\formulario\Security\JWTAuthenticationFilter.class
